@@ -1,8 +1,35 @@
 import Link from 'next/link'
 import { Formik } from 'formik'
+import { hydrate, css } from 'react-emotion';
+import { Layout } from '../components/Layout'
+
+const inputContainerStyle = css`
+  margin-bottom: 10px;
+`;
+
+const inputStyle = css`
+  border: 1px solid #eee;
+  line-height: 20px;
+  padding: 5px 10px;
+  background: #F2F2F2;
+`;
+
+const errorStyle = css`
+  color: red;
+`;
+
+const buttonStyle = css`
+  border: none;
+  line-height: 20px;
+  padding: 5px 15px;
+  background: blue;
+  color: #00B242;
+  text-transform: uppercase;
+  cursor: pointer;
+`;
 
 const Login = () => (
-  <div>
+  <Layout>
     <h1>Login page</h1>
     <Link as="" href="/">
       <a>Home</a>
@@ -46,31 +73,37 @@ const Login = () => (
         /* and other goodies */
       }) => (
         <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email}
-            placeholder="Your email"
-          />
-          {errors.email && touched.email && errors.email}
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.password}
-            placeholder="Your password"
-          />
-          {errors.password && touched.password && errors.password}
-          <button type="submit" disabled={isSubmitting}>
+          <div css={inputContainerStyle}>
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+              placeholder="Your email"
+              css={inputStyle}
+            />
+            <div css={errorStyle}>{errors.email && touched.email && errors.email}</div>
+          </div>
+          <div css={inputContainerStyle}>
+            <input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.password}
+              placeholder="Your password"
+              css={inputStyle}
+            />
+            <div css={errorStyle}>{errors.password && touched.password && errors.password}</div>
+          </div>
+          <button type="submit" disabled={isSubmitting} css={buttonStyle}>
             Login
           </button>
         </form>
       )}
     </Formik>
-  </div>
+  </Layout>
 )
   
 export default Login

@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { hydrate, css } from 'react-emotion'
+import { Layout } from '../components/Layout'
 
 const Index = () => (
-  <div>
+  <Layout>
     <h1>Home - Hello Next.js</h1>
     <Link as="login" href="/login">
       <a>Login</a>
@@ -9,7 +11,7 @@ const Index = () => (
     <Link as="register" href="/register">
       <a>Register</a>
     </Link>
-  </div>
+  </Layout>
 )
-  
+
 export default Index

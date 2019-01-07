@@ -16,6 +16,12 @@
     "formik": "^1.4.1",
     "next": "^7.0.2",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "emotion": "^9.2.12",
+    "emotion-server": "^9.2.12",
+    "react-emotion": "^9.2.12",
+    "babel-plugin-emotion": "^9.2.11",
+    "babel-plugin-import": "^1.9.1",
+    "babel-plugin-inline-import": "^3.0.0"
   }
 }
